@@ -1,5 +1,5 @@
 <?php
-$a = array(
+$a = [
     'i1' => null,
     'i2' => 0,
     'i3' => 1,
@@ -10,7 +10,7 @@ $a = array(
     'b2' => true,
     'a1' => [],
     'a2' => [null],
-);
+];
 ?><!doctype html>
 <html lang="nl">
 <head>
@@ -29,19 +29,19 @@ $a = array(
 	</tr>
 	<tr>
 		<td colspan="2"><code>$a['i0']</code></td>
-		<td><code><?php echo empty($a['x']) ? 'WAAR' : 'ONWAAR'; ?></code></td>
-		<td><code><?php echo isset($a['x']) ? 'WAAR' : 'ONWAAR'; ?></code></td>
-		<td><code><?php echo $a['x'] == 0   ? 'WAAR' : 'ONWAAR'; ?></code></td>
-		<td><code><?php echo $a['x'] === 0  ? 'WAAR' : 'ONWAAR'; ?></code></td>
+		<td><code><?=empty($a['x']) ? 'WAAR' : 'ONWAAR' ?></code></td>
+		<td><code><?=isset($a['x']) ? 'WAAR' : 'ONWAAR' ?></code></td>
+		<td><code><?=$a['x'] == 0   ? 'WAAR' : 'ONWAAR' ?></code></td>
+		<td><code><?=$a['x'] === 0  ? 'WAAR' : 'ONWAAR' ?></code></td>
 	</tr>
 <?php foreach ($a as $sleutel => $waarde) : ?>
 	<tr>
-		<td><code>$a['<?php echo $sleutel; ?>']</code></td>
-		<td><code><?php echo var_export($waarde, true); ?></code></td>
-		<td><code><?php echo empty($waarde) ? 'WAAR' : 'ONWAAR'; ?></code></td>
-		<td><code><?php echo isset($waarde) ? 'WAAR' : 'ONWAAR'; ?></code></td>
-		<td><code><?php echo $waarde == 0   ? 'WAAR' : 'ONWAAR'; ?></code></td>
-		<td><code><?php echo $waarde === 0  ? 'WAAR' : 'ONWAAR'; ?></code></td>
+		<td><code>$a['<?=$sleutel ?>']</code></td>
+		<td><code><?=var_export($waarde, true); ?></code></td>
+		<td><code><?=empty($waarde) ? 'WAAR' : 'ONWAAR' ?></code></td>
+		<td><code><?=isset($waarde) ? 'WAAR' : 'ONWAAR' ?></code></td>
+		<td><code><?=$waarde == 0   ? 'WAAR' : 'ONWAAR' ?></code></td>
+		<td><code><?=$waarde === 0  ? 'WAAR' : 'ONWAAR' ?></code></td>
 	</tr>
 <?php endforeach; ?>
 	</table>
