@@ -14,7 +14,7 @@ $a = [
 ?><!doctype html>
 <html lang="nl">
 <head>
-	<meta charset="UTF-8" />
+	<meta charset="UTF-8">
 	<title>Variabelen</title>
 </head>
 <body>
