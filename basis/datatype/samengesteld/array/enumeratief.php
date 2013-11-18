@@ -2,7 +2,6 @@
 /**
  * Enumeratieve arrays
  */
-
 $a = ['één', 'twee', 'drie'];
 var_dump($a)
 /* Output:
