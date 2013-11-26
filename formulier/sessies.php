@@ -21,6 +21,14 @@ function sessieLeegmaken()
     $_SESSION = [];    // Sessie onmiddellijk leegmaken.
 }
 
+/**
+ * @param string $naam Naam van de POST-variabele.
+ */
+function getPostValue($naam)
+{
+    return isset($_POST[$naam]) ? $_POST[$naam] : '';
+}
+
 ?><!doctype html>
 <html>
 <head>
@@ -31,14 +39,14 @@ function sessieLeegmaken()
     <h1>Formulier met sessies</h1>
     <form action="#"  method="post">
         <label>Postvariabele 1:
-            <input type="text" name="post_var1">
+            <input type="text" name="post_var1" value="<?=getPostValue('post_var1') ?>">
         </label>
         <label>Postvariabele 2:
-            <input type="text" name="post_var2">
+            <input type="text" name="post_var2" value="<?=getPostValue('post_var2') ?>">
         </label>
-        <input type="submit" value="Versturen">
+        <input type="submit" name="btn-versturen" value="Versturen">
     </form>
-    <?php
+<?php
     output('Post'      , $_POST      );
     output('Session'   , $_SESSION   );
     sessieLeegmaken();
