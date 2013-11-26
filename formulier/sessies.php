@@ -20,6 +20,7 @@ function sessieLeegmaken()
     session_destroy(); // Sessie leegmaken na het beëindigen van het script.
     $_SESSION = [];    // Sessie onmiddellijk leegmaken.
 }
+
 ?><!doctype html>
 <html>
 <head>
@@ -40,6 +41,7 @@ function sessieLeegmaken()
     <?php
     output('Post'      , $_POST      );
     output('Session'   , $_SESSION   );
+    sessieLeegmaken();
     output('Session ID', session_id());
     output('Session'   , $_SESSION   ); 
 ?>
