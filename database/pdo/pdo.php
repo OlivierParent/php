@@ -4,7 +4,7 @@ $db_sqlite = array('dsn'      => 'sqlite::memory:',                    // Data S
                    'password' =>  null,
                    'options'  =>  null);
 
-$db_mysql  = array('dsn'      => 'mysql:dbname=mijndb;host=localhost', // Data Source Name
+$db_mysql  = array('dsn'      => 'mysql:dbname=mijndb;host=localhost;charset=utf8', // Data Source Name
                    'user'     => 'root',
                    'password' => '',
                    'options'  =>  null);
