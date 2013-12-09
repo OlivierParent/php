@@ -1,18 +1,18 @@
 <?php
 $db_sqlite = [
-	// Data Source Name.
-	'dsn'      => 'sqlite::memory:',
-	'user'     =>  null,
-	'password' =>  null,
-	'options'  =>  null,
+    // Data Source Name.
+    'dsn'      => 'sqlite::memory:',
+    'user'     =>  null,
+    'password' =>  null,
+    'options'  =>  null,
 ];
 
 $db_mysql  = [
-	// Data Source Name.
-	'dsn'      => 'mysql:dbname=mijndb;host=localhost;charset=utf8',
-	'user'     => 'root',
-	'password' => '',
-	'options'  =>  null,
+    // Data Source Name.
+    'dsn'      => 'mysql:dbname=mijndb;host=localhost;charset=utf8',
+    'user'     => 'root',
+    'password' => '',
+    'options'  =>  null,
 ];
 
 
@@ -23,7 +23,7 @@ $dbconfig = ($sqlite) ? $db_sqlite : $db_mysql;
 error_reporting(0); // Standaardfoutmelding afzetten.
 try {               // Eigen foutmelding.
     $db = new PDO(
-    	$dbconfig['dsn'], // Data Source Name
+        $dbconfig['dsn'], // Data Source Name
         $dbconfig['user'],
         $dbconfig['password'],
         $dbconfig['options']
@@ -45,32 +45,32 @@ $sql = 'CREATE TABLE IF NOT EXISTS users ('
      .     'user_id INTEGER PRIMARY KEY ' . ($sqlite ? 'AUTOINCREMENT' : 'AUTO_INCREMENT') . ', ' // SQL-dialect
      .     'user_givenname  VARCHAR(255), '
      .     'user_familyname VARCHAR(255), '
-     .     'user_password   ' . ($sqlite ? 'CHARACTER' : 'CHAR') . '(40)' // SQL-dialect
+     .     'user_password ' . ($sqlite ? 'CHARACTER' : 'CHAR') . '(40)' // SQL-dialect
      . ')';
 $db->query($sql);
 
 // Prepared statement met anonieme SQL-parameters.
 $sql = 'INSERT INTO users ('
-	 . 	   'user_givenname, '
-	 .     'user_familyname, '
-	 .     'user_password'
-	 . ') VALUES (?, ?, ?)';
+     .     'user_givenname, '
+     .     'user_familyname, '
+     .     'user_password'
+     . ') VALUES (?, ?, ?)';
 
 $stmt = $db->prepare($sql);
 if ($stmt) {
-	$a = [
-		'Vincent' => 'Vega',
-		'Mia'     => 'Walace',
-		'Jules'   => 'Winnfield',
-		'Butch'   => 'Coolidge',
-		'Honey'   => 'Bunny'
-	];
+    $a = [
+        'Vincent' => 'Vega',
+        'Mia'     => 'Walace',
+        'Jules'   => 'Winnfield',
+        'Butch'   => 'Coolidge',
+        'Honey'   => 'Bunny',
+    ];
     foreach ($a as $voornaam => $naam) {
         $wachtwoord = sha1("{$voornaam} {$naam}"); // Secure Hash Algorithm 1 (NIET VEILIG GENOEG, gebruik Blowfish of SHA-512 met random salt!)
         $waarden = [
-        	$voornaam,
-        	$naam,
-        	$wachtwoord,
+            $voornaam,
+            $naam,
+            $wachtwoord,
         ];
         $stmt->execute($waarden);
 
@@ -86,7 +86,7 @@ $sql = 'SELECT * '
 // Resultaat (result set) van de query opvragen.
 $res = $db->query($sql)
 if ($res) {
-	// Rijen één voor één opvragen uit het resultaat.
+    // Rijen één voor één opvragen uit het resultaat.
     while ($row = $res->fetch()) {
         var_dump($row);
     }
@@ -97,7 +97,7 @@ $sql = 'SELECT * '
      . 'FROM users '
      . 'WHERE '
      .     'user_password = :password AND '
-     . 	   'user_givenname = ? AND '
+     .     'user_givenname = ? AND '
      .     'user_familyname = :familyname '
      . 'LIMIT 1';
 
