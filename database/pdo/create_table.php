@@ -1,17 +1,15 @@
 <?php
 
-require_once 'connectie.php';
 require_once 'drop_table.php';
 
-echo '<pre>CREATE (TABLE)</pre>';
-
 // Maak een nieuwe tabel `personas` als die nog niet bestaat.
-$sql_create_table
-     = 'CREATE TABLE IF NOT EXISTS `personas` ('
-     .     '`user_id` INTEGER PRIMARY KEY ' . ($isSqlite ? 'AUTOINCREMENT' : 'AUTO_INCREMENT') . ', ' // SQL-dialect
-     .     '`user_givenname` VARCHAR(255), '
-     .     '`user_familyname` VARCHAR(255)'
+$sql_persons_create_table
+     = 'CREATE TABLE IF NOT EXISTS `persons` ('
+     .     '`person_id` INTEGER PRIMARY KEY ' . ($isSQLite ? 'AUTOINCREMENT' : 'AUTO_INCREMENT') . ', ' // SQL-dialect
+     .     '`person_givenname` VARCHAR(255), '
+     .     '`person_familyname` VARCHAR(255)'
      . ')'
 ;
-$affectedRows = $db->exec($sql);
-var_dump($affectedRows);
+var_dump("Create-statement (CRUD): {$sql_persons_create_table}");
+
+$db->exec($sql_persons_create_table);

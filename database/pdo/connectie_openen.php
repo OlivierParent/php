@@ -4,7 +4,9 @@
 $isSQLite = true;
 
 if ($isSQLite) {
-    // SQLite
+    /**
+     * Configuratie voor SQLite.
+     */
     
     // Data Source Name samenstellen.
     $dsn = 'sqlite:'
@@ -18,13 +20,15 @@ if ($isSQLite) {
     ];
 
 } else {
-    // MySQL
+    /**
+     * Configuratie voor MySQL Server.
+     */
 
     $dsn_properties = [
-        'dbname'  => 'mijndb',    // Naam van het Database Schema.
+        'dbname'  => 'mijn_db',   // Naam van het Database Schema (moet al bestaan in MySQL).
         'host'    => 'localhost',
-        'port'    => 3306,        // 3306 is de standaardpoort voor MySQL.
-        'charset' => 'utf8',      // Zorgt ervoor dat de verbinding tussen PHP en MySQL in UTF-8 tekencodering gebeurt.
+        'port'    =>  3306,       // 3306 is de standaardpoort voor MySQL.
+        'charset' => 'utf8',      // Zorgt ervoor dat de verbinding tussen PHP en MySQL in UTF-8-tekencodering gebeurt.
     ];
 
     // Data Source Name samestellen.
@@ -36,7 +40,7 @@ if ($isSQLite) {
     $dbconfig  = [
         'dsn'      => $dsn,
         'user'     => 'root', // Naam van de databasegebruiker.
-        'password' => '',     // Wachtwoord voor de databasegebruiker.
+        'password' => 'root', // Wachtwoord voor de databasegebruiker.
         'options'  =>  null,
     ];
 
@@ -45,14 +49,18 @@ if ($isSQLite) {
 // Foutmeldingen
 error_reporting(0); // Standaardfoutmelding afzetten.
 try {               // Eigen foutmelding.
+    /**
+     * Verbinding maken met de database via een nieuwe PDO object.
+     */
     $db = new PDO(
         $dbconfig['dsn'], // Data Source Name
         $dbconfig['user'],
         $dbconfig['password'],
         $dbconfig['options']
     );
+    var_dump('Databaseverbinding met ' . ($isSQLite ? 'SQLite3' : 'MySQL') . ' geopend.');
 } catch (PDOException $e) {
-    die('Databaseverbinding mislukt: ' . $e->getMessage() );
+    die('Databaseverbinding mislukt: <pre>' . $e->getMessage() .'</pre>');
 }
 
 /**

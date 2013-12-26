@@ -1,4 +1,4 @@
 <?php
 
-$beschibare_drivers = PDO::getAvailableDrivers();
-var_dump($beschibare_drivers);
+$beschibare_stuurprogrammas = PDO::getAvailableDrivers();
+var_dump("Beschikbare stuurprogramma's:", $beschibare_stuurprogrammas);
