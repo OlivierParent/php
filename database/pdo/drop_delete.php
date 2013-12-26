@@ -2,8 +2,7 @@
 
 require_once 'update.php';
 
-// Om de tabel te verwijderen als die bestaat.
-
+// Array met personen die uit de tabel `persons` verwijderd moeten worden.
 $familyNames = [
     'Coolidge',
     'Vega',
@@ -11,11 +10,14 @@ $familyNames = [
 ];
 var_dump('Personen verwijderen met deze familienaam:', $familyNames);
 
+
+// Per arrayitem moeten we een vraagteken toevoegen aan de IN-clause van het SQL-statement.
 $inClause = [];
 for ($i = 1, $iMax = count($familyNames); $i <= $iMax; $i++) {
     $inClause[] = '?';
 }
-$inClause = implode(',', $inClause);
+// Plak alle vraagtekens in de array aan elkaar tot een string, telkens met een comma (,) ertussen.
+$inClause = implode(',', $inClause); // Zie ook: http://php.net/implode
 
 $sql_persons_delete
     = 'DELETE FROM `persons` '

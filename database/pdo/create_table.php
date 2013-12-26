@@ -12,4 +12,5 @@ $sql_persons_create_table
 ;
 var_dump("Create-statement (CRUD): {$sql_persons_create_table}");
 
+// SQL-statement uitvoeren.
 $db->exec($sql_persons_create_table);
