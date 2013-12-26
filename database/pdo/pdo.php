@@ -38,7 +38,7 @@ $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
 
 // Om de tabel te verwijderen als die bestaat.
 $sql = 'DROP TABLE IF EXISTS users';
-$db->query($sql);
+$db->exec($sql);
 
 // Maak een nieuwe tabel als die nog niet bestaat.
 $sql = 'CREATE TABLE IF NOT EXISTS users ('
@@ -47,7 +47,7 @@ $sql = 'CREATE TABLE IF NOT EXISTS users ('
      .     'user_familyname VARCHAR(255), '
      .     'user_password ' . ($sqlite ? 'CHARACTER' : 'CHAR') . '(40)' // SQL-dialect
      . ')';
-$db->query($sql);
+$db->exec($sql);
 
 // Prepared statement met anonieme SQL-parameters.
 $sql = 'INSERT INTO users ('

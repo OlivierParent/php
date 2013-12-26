@@ -2,11 +2,11 @@
 <html lang="nl">
 <head>
     <meta charset="UTF-8">
-    <title>Dit is een HTML5-Document</title>
+    <title>Dit is een HTML5-document</title>
 </head>
 <body>
 <?php
-    // Hier komt PHP-code tussen de PHP-begintag en de PHP-eindtag
+    // Hier komt PHP-code tussen de PHP-begintag en de PHP-eindtag.
 ?>
 </body>
 </html>

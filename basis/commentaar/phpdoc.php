@@ -22,11 +22,11 @@
  *      a r t e v e l d e  u n i v e r s i t y  c o l l e g e  g h e n t     *
  *                                                                           *
  *                                                                           *
- *                                 MEMBER OF GHENT UNIVERITY ASSOCIATION     *
+ *                                MEMBER OF GHENT UNIVERSITY ASSOCIATION     *
  *                                                                           *
  *                                                                           *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
  *
  * @author     Olivier Parent
- * @copyright  Copyright (c) 2013 Artevelde University College Ghent
+ * @copyright  Copyright © 2013 Artevelde University College Ghent
  */
