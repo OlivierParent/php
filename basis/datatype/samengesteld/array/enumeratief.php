@@ -1,6 +1,6 @@
 <?php
 /**
- * Enumeratieve arrays
+ * Enumeratieve arrays.
  */
 $a = ['één', 'twee', 'drie'];
 var_dump($a)

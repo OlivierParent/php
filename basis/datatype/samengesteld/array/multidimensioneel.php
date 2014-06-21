@@ -1,6 +1,6 @@
 <?php
 /**
- * Multidimensionele array: de 2-dimensionele array
+ * Multidimensionele array: de 2-dimensionele array.
  */
  $a = [
     'de' => [
